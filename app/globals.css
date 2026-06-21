@@ -1,26 +1,200 @@
 @import "tailwindcss";
 
+/* The theme provider toggles `.dark` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================
+   macOS System Settings — accurate palette (Sequoia)
+   ========================================================= */
+
+/* ---- Light ---- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Desktop backdrop behind the window */
+  --backdrop-from: #c7cad0;
+  --backdrop-to: #e6e8ec;
+
+  /* Window + surfaces */
+  --win-bg: #ececec;            /* content area */
+  --sidebar-bg: 230, 230, 232;  /* rgb triple for translucency */
+  --titlebar-bg: #e4e4e4;
+  --card: #ffffff;              /* grouped inset container */
+  --card-hover: #f6f6f6;
+
+  /* Text */
+  --fg: #1d1d1f;
+  --fg-secondary: #6d6d72;
+  --fg-tertiary: #9a9a9e;
+
+  /* Lines */
+  --separator: rgba(0, 0, 0, 0.12);
+  --separator-strong: rgba(0, 0, 0, 0.18);
+  --window-border: rgba(0, 0, 0, 0.16);
+
+  /* Accent (macOS blue) */
+  --accent: #007aff;
+  --accent-hover: #0066d6;
+  --accent-soft: rgba(0, 122, 255, 0.14);
+  --accent-on: #ffffff;
+
+  /* Traffic lights */
+  --tl-red: #ff5f57;
+  --tl-yellow: #febc2e;
+  --tl-green: #28c840;
+
+  color-scheme: light;
 }
 
+/* ---- Dark ---- */
+.dark {
+  /* Backdrop distinctly cooler/darker than the neutral window so the window floats. */
+  --backdrop-from: #0d0e13;
+  --backdrop-to: #1a1b24;
+
+  --win-bg: #1e1e1e;
+  --sidebar-bg: 48, 48, 50;
+  --titlebar-bg: #2a2a2c;
+  --card: #2a2a2c;
+  --card-hover: #343436;
+
+  --fg: #f5f5f7;
+  --fg-secondary: #a1a1a6;
+  --fg-tertiary: #6e6e72;
+
+  --separator: rgba(255, 255, 255, 0.12);
+  --separator-strong: rgba(255, 255, 255, 0.2);
+  --window-border: rgba(255, 255, 255, 0.16);
+
+  --accent: #0a84ff;
+  --accent-hover: #409cff;
+  --accent-soft: rgba(10, 132, 255, 0.22);
+  --accent-on: #ffffff;
+
+  --tl-red: #ff5f57;
+  --tl-yellow: #febc2e;
+  --tl-green: #28c840;
+
+  color-scheme: dark;
+}
+
+/* Map to Tailwind tokens. `inline` emits var(...) refs so .dark wins at runtime. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-backdrop-from: var(--backdrop-from);
+  --color-backdrop-to: var(--backdrop-to);
+  --color-win: var(--win-bg);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-titlebar: var(--titlebar-bg);
+  --color-fg: var(--fg);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-tertiary: var(--fg-tertiary);
+  --color-separator: var(--separator);
+  --color-separator-strong: var(--separator-strong);
+  --color-window-border: var(--window-border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-on: var(--accent-on);
+
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-apple: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Desktop "wallpaper" backdrop. */
+  body {
+    background: linear-gradient(135deg, var(--backdrop-from), var(--backdrop-to));
+    color: var(--fg);
+    font-family: var(--font-sans);
+    transition: background 0.4s var(--ease-apple), color 0.3s var(--ease-apple);
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--fg);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--separator-strong) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--separator-strong);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-radius: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Translucent sidebar vibrancy */
+  .ss-sidebar {
+    background-color: rgb(var(--sidebar-bg) / 0.55);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  }
+
+  /* macOS squircle icon tile */
+  .ss-squircle {
+    border-radius: 28%;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Inset grouped list separator (hairline that doesn't reach edges) */
+  .ss-row-sep {
+    border-top: 1px solid var(--separator);
+    margin-left: 14px;
+  }
+
+  /* Auto inset separators between consecutive rows in a group. */
+  .ss-rows > .ss-row + .ss-row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 14px;
+    right: 0;
+    height: 1px;
+    background: var(--separator);
+  }
+
+  /* Liquid-glass surface (macOS 26 Tahoe): translucent frosted grouped cards. */
+  .ss-surface {
+    background-color: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    box-shadow: inset 0 0 0 1px var(--separator);
+  }
+  .dark .ss-surface {
+    background-color: rgb(255 255 255 / 0.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
