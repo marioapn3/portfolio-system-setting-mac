@@ -41,7 +41,7 @@ function SidebarItem({
       tabIndex={active ? 0 : -1}
       onClick={() => onNavigate(id)}
       className={cn(
-        "relative flex w-full items-center gap-2.5 rounded-md px-2 py-[5px] text-left text-[13px] outline-none",
+        "relative flex w-full items-center gap-2.5 rounded-md px-2 py-[5px] text-left text-[13px] outline-none cursor-pointer",
         active ? "text-white" : "text-fg hover:bg-black/5 dark:hover:bg-white/10",
       )}
     >
@@ -80,7 +80,7 @@ export function Sidebar({ active, onNavigate }: NavProps) {
         <button
           type="button"
           onClick={() => onNavigate("home")}
-          className="flex w-full items-center gap-2.5 rounded-md px-1.5 py-1.5 text-left transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+          className="flex w-full items-center gap-2.5 rounded-md px-1.5 py-1.5 text-left transition-colors hover:bg-black/5 dark:hover:bg-white/10 cursor-pointer"
         >
           <Image
             src="/images/mario.png"

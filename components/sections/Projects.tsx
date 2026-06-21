@@ -113,7 +113,7 @@ function ProjectRow({ project }: { project: Project }) {
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
           aria-label={open ? t.projects.aria.collapse : t.projects.aria.expand}
-          className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-fg-tertiary transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.1]"
+          className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-fg-tertiary transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.1] cursor-pointer"
         >
           <Icon
             name="chevronDown"
@@ -267,7 +267,7 @@ export function Projects() {
               type="button"
               onClick={() => setFilter(b)}
               className={cn(
-                "rounded-full px-3 py-1 text-[12px] font-medium transition-colors",
+                "rounded-full px-3 py-1 text-[12px] font-medium transition-colors cursor-pointer",
                 active
                   ? "bg-accent text-accent-on"
                   : "bg-card text-fg-secondary ring-1 ring-separator hover:text-fg",

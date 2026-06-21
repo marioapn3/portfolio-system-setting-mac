@@ -40,7 +40,7 @@ export function Segmented<T extends string>({
             aria-selected={active}
             onClick={() => onChange(o.value)}
             className={cn(
-              "relative rounded-[6px] px-2.5 py-[3px] text-[11px] font-medium outline-none",
+              "relative rounded-[6px] px-2.5 py-[3px] text-[11px] font-medium outline-none cursor-pointer",
               fullWidth && "flex-1",
               active ? "text-fg" : "text-fg-secondary hover:text-fg",
             )}

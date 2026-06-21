@@ -2,15 +2,16 @@
 
 import { motion } from "framer-motion";
 
-/** macOS-style toggle switch (28×16, green when on). */
 export function Toggle({
   checked,
   onChange,
   label,
+  disabled = false,
 }: {
   checked: boolean;
   onChange: (next: boolean) => void;
   label?: string;
+  disabled?: boolean;
 }) {
   return (
     <button
@@ -18,9 +19,18 @@ export function Toggle({
       role="switch"
       aria-checked={checked}
       aria-label={label}
-      onClick={() => onChange(!checked)}
-      className="relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200"
-      style={{ backgroundColor: checked ? "#34c759" : "var(--separator-strong)" }}
+      aria-disabled={disabled}
+      disabled={disabled}
+      onClick={() => !disabled && onChange(!checked)}
+      className={`
+        relative h-4 w-7 shrink-0 rounded-full transition-all duration-200
+        
+      `}
+      style={{
+        backgroundColor: checked
+          ? "#34c759"
+          : "var(--separator-strong)",
+      }}
     >
       <motion.span
         className="absolute top-[2px] h-3 w-3 rounded-full bg-white shadow-sm"

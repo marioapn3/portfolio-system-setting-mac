@@ -41,7 +41,7 @@ export function Experience() {
               trailing={
                 <span className="flex items-center justify-end gap-2">
                   <span>{e.period}</span>
-                  <Icon name="info" size={14} className="shrink-0 text-fg-tertiary" />
+                  <Icon name="info" size={14} className="shrink-0 text-fg-tertiary cursor-pointer" />
                 </span>
               }
               onClick={() => setActive(e)}
@@ -125,7 +125,7 @@ export function Experience() {
                 {active.tech.map((tc) => (
                   <span
                     key={tc}
-                    className="rounded-md bg-black/[0.06] px-2 py-0.5 text-[11px] text-fg-secondary dark:bg-white/[0.08]"
+                    className="rounded-md bg-black/[0.06] px-2 py-0.5 text-[11px] text-fg-secondary dark:bg-white/[0.08] "
                   >
                     {tc}
                   </span>

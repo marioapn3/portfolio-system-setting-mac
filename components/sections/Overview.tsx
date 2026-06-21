@@ -82,6 +82,7 @@ export function Overview() {
                 checked={available}
                 onChange={setAvailable}
                 label={t.overview.available}
+                disabled={true}
               />
             }
           />
