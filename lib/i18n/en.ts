@@ -17,7 +17,7 @@ export const profile: Profile = {
   role: "Backend Engineer",
   status: "Available for work",
   tagline:
-    "Software engineer passionate about scalable systems and reliable products.",
+    "Software Engineer passionate about scalable systems and reliable products.",
   cvUrl: "/mario-aprilnino-cv.pdf",
   location: "Semarang, Indonesia",
 };
