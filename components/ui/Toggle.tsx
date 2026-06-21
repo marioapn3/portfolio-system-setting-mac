@@ -24,7 +24,7 @@ export function Toggle({
       onClick={() => !disabled && onChange(!checked)}
       className={`
         relative h-4 w-7 shrink-0 rounded-full transition-all duration-200
-        
+        ${disabled ? "cursor-not-allowed" : "cursor-pointer"}
       `}
       style={{
         backgroundColor: checked

@@ -49,7 +49,7 @@ export function Overview() {
           <h2 className="text-[17px] font-semibold tracking-tight text-fg">
             {profile.name}
           </h2>
-          <p className="text-[13px] font-medium text-fg-secondary">{profile.tagline}</p>
+          <p className="text-[13px] text-fg-secondary">{profile.tagline}</p>
           {/* <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-fg-secondary">
             {profile.tagline}
           </p> */}
