@@ -54,7 +54,7 @@ export function Row({
       onClick={onClick}
       className={cn(
         "ss-row group relative flex w-full items-center gap-3 px-3.5 py-2 text-left",
-        interactive && "transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06]",
+        interactive && "transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06] cursor-pointer",
         className,
       )}
     >
@@ -73,7 +73,7 @@ export function Row({
         </div>
       )}
       {chevron && (
-        <Icon name="chevronRight" size={14} className="shrink-0 text-fg-tertiary" />
+        <Icon name="chevronRight" size={14} className="shrink-0 text-fg-tertiary cursor-pointer" />
       )}
     </Comp>
   );

@@ -17,7 +17,7 @@ export const profile: Profile = {
   role: "Backend Engineer",
   status: "Available for work",
   tagline:
-    "I'm passionate about building software that solves real-world problems — from scalable backend services to full-stack applications.",
+    "software engineer passionate about designing scalable systems and building reliable products.",
   cvUrl: "/mario-aprilnino-cv.pdf",
   location: "Semarang, Indonesia",
 };
@@ -31,7 +31,7 @@ export const navItems: NavItem[] = [
 
 export const education: Education[] = [
   {
-    degree: "Bachelor of Computer Science",
+    degree: "Bachelor of Computer Science (GPA: 3.96)",
     institution: "Universitas Dian Nuswantoro",
     detail: "GPA: 3.96",
     period: "Sep 2022 - Mar 2026",

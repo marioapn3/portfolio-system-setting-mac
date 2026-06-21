@@ -18,7 +18,7 @@ export const profile: Profile = {
   role: "Backend Engineer",
   status: "Tersedia untuk bekerja",
   tagline:
-    "Saya senang membangun perangkat lunak yang menyelesaikan masalah dunia nyata — mulai dari layanan backend yang skalabel hingga aplikasi full-stack.",
+    "software engineer passionate about designing scalable systems and building reliable products.",
   cvUrl: "/mario-aprilnino-cv.pdf",
   location: "Semarang, Indonesia",
 };
@@ -32,7 +32,7 @@ export const navItems: NavItem[] = [
 
 export const education: Education[] = [
   {
-    degree: "S1 · S.Kom.",
+    degree: "Sarjana Komputer (IPK: 3.96)",
     institution: "Universitas Dian Nuswantoro",
     detail: "IPK: 3.96",
     period: "Sep 2022 - Mar 2026",
