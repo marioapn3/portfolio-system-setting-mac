@@ -73,7 +73,7 @@ export const experiences: Experience[] = [
     tech: ["Golang", "NestJS", "MongoDB", "PostgreSQL", "RabbitMQ", "Firebase"],
   },
   {
-    company: "PT Monago IO",
+    company: "PT Monago Teknologi Nusantara",
     role: "Backend Developer",
     period: "Nov 2024 - Jul 2025",
     description:
