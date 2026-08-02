@@ -188,7 +188,7 @@ export const skills: SkillCategory[] = [
 export const projects: Project[] = [
   {
     name: "MyFusionPay",
-    role: "Backend Web3 Developer",
+    role: "Lead Backend Web3 Engineer",
     description:
       "FusionPay is a non-custodial Web3 connector that simplifies cross-border payments, smart wallet access, and real-world crypto utility with no accounts or complexity.",
     tech: ["Golang", "PostgreSQL", "Redis", "OneSignal"],
@@ -204,7 +204,7 @@ export const projects: Project[] = [
   },
   {
     name: "YouApp: Trips & Experiences",
-    role: "Backend Developer",
+    role: "Lead Backend Engineer",
     description:
       "YouApp is a trusted experiences platform that lets you discover, book, and join real local activities hosted by verified and certified locals for meaningful, authentic travel and lifestyle experiences.",
     tech: [
@@ -225,7 +225,7 @@ export const projects: Project[] = [
   },
   {
     name: "Maharbote Social",
-    role: "Backend Developer",
+    role: "Backend Engineer",
     description:
       "A global social media app with real-time chat that combines authentic Myanmar Maharbote and modern AI to connect Myanmar communities worldwide through meaningful friendships, communities, and real-life events.",
     tech: ["NestJS", "PostgreSQL", "Socket.IO", "Firebase", "Google Maps API"],
