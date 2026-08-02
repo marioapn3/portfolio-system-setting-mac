@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SettingsGroup, Row } from "@/components/ui/SettingsGroup";
 import { IconBadge } from "@/components/ui/IconBadge";
@@ -20,6 +21,24 @@ const fade = {
   }),
 };
 
+/** Rounded tile showing the company logo, falling back to a briefcase badge. */
+function CompanyLeading({ experience }: { experience: Experience }) {
+  if (experience.logo) {
+    return (
+      <span className="grid h-[28px] w-[28px] shrink-0 place-items-center rounded-[7px] bg-white p-[5px] ring-1 ring-black/[0.06] dark:bg-white/[0.08] dark:ring-white/[0.08]">
+        <Image
+          src={experience.logo}
+          alt={experience.company}
+          width={28}
+          height={28}
+          className="h-full w-full object-contain"
+        />
+      </span>
+    );
+  }
+  return <IconBadge icon="briefcase" color={experience.current ? "#34c759" : "#8e8e93"} />;
+}
+
 /** Experience pane — work history, education & achievements. */
 export function Experience() {
   const { experiences, education, achievements } = useContent();
@@ -33,9 +52,7 @@ export function Experience() {
           {experiences.map((e, i) => (
             <Row
               key={`${e.company}-${e.role}-${i}`}
-              leading={
-                <IconBadge icon="briefcase" color={e.current ? "#34c759" : "#8e8e93"} />
-              }
+              leading={<CompanyLeading experience={e} />}
               title={e.role}
               subtitle={e.company}
               trailing={
@@ -84,10 +101,7 @@ export function Experience() {
         {active && (
           <div className="space-y-3">
             <div className="flex items-start gap-3">
-              <IconBadge
-                icon="briefcase"
-                color={active.current ? "#34c759" : "#8e8e93"}
-              />
+              <CompanyLeading experience={active} />
               <div className="min-w-0">
                 <p className="text-[15px] font-semibold leading-tight text-fg">
                   {active.role}

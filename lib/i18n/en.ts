@@ -47,6 +47,7 @@ export const experiences: Experience[] = [
     role: "Lead Backend Engineer",
     period: "Mar 2026 - present",
     current: true,
+    logo: "/images/logo/youapp.png",
     description:
       "Lead backend engineering for the YouApp AI platform: architecture, delivery, and technical direction across services.",
     highlights: [
@@ -61,6 +62,7 @@ export const experiences: Experience[] = [
     company: "PT. Macaroon Pte. Ltd. · YouApp AI",
     role: "Backend Engineer",
     period: "Aug 2025 - Feb 2026",
+    logo: "/images/logo/youapp.png",
     description:
       "Developed backend services for the YouApp AI platform — multi-currency transactions, payment gateways, and fintech features.",
     highlights: [
@@ -75,6 +77,7 @@ export const experiences: Experience[] = [
     company: "PT Monago Teknologi Nusantara",
     role: "Backend Developer",
     period: "Nov 2024 - Jul 2025",
+    logo: "/images/logo/monago.png",
     description:
       "Built decision support systems and chatbot integrations using FastAPI, NestJS, MongoDB, and LangChain.",
     highlights: [
@@ -88,6 +91,7 @@ export const experiences: Experience[] = [
     role: "Backend Developer",
     period: "Aug 2024 - present",
     current: true,
+    logo: "/images/logo/bengkod.png",
     description:
       "Developed REST APIs, optimized databases, and deployed machine learning models.",
     highlights: [

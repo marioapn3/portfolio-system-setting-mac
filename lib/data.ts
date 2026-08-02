@@ -38,6 +38,8 @@ export interface Experience {
   role: string;
   period: string;
   description: string;
+  /** Optional company logo path shown as the row leading icon. */
+  logo?: string;
   current?: boolean;
   /** Optional responsibility/impact bullets shown in the role detail modal. */
   highlights?: string[];
