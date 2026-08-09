@@ -8,6 +8,7 @@ import type {
   Project,
   Article,
   Contact,
+  ServicesSection,
 } from "@/lib/data";
 
 /** English content bundle — single source for the EN locale. */
@@ -24,6 +25,7 @@ export const profile: Profile = {
 
 export const navItems: NavItem[] = [
   { id: "home", label: "Overview", icon: "home", color: "#007aff" },
+  { id: "services", label: "Services", icon: "globe", color: "#34c759" },
   { id: "experience", label: "Experience", icon: "briefcase", color: "#5e5ce6" },
   { id: "skills", label: "Skills", icon: "sparkles", color: "#bf5af2" },
   { id: "projects", label: "Projects", icon: "folder", color: "#ff9500" },
@@ -474,6 +476,148 @@ export const articles: Article[] = [
       "Leverage NestJS and TypeScript to build modular, enterprise-grade APIs for modern cloud ecosystems.",
   },
 ];
+
+export const services: ServicesSection = {
+  hero: {
+    headline: "Turn Your Idea into a Real Application",
+    subtitle:
+      "I help businesses and individuals create mobile apps, websites, and digital systems that are easy to use, look professional, and are ready to support daily operations and business growth.",
+    ctaPrimary: "Free Consultation",
+    ctaSecondary: "View Pricing",
+  },
+  servicesHeading: "What I Can Help You Build",
+  services: [
+    {
+      name: "Mobile App Development",
+      tagline: "Android & iPhone apps your customers will love",
+      icon: "smartphone",
+      color: "#007aff",
+      features: [
+        "Android & iPhone apps",
+        "User-friendly design",
+        "Notifications for your customers",
+        "Help publishing the app to the app stores",
+      ],
+    },
+    {
+      name: "Business System & Website Development",
+      tagline: "A website or system that runs your daily operations",
+      icon: "server",
+      color: "#5e5ce6",
+      features: [
+        "Custom business systems",
+        "Online booking or ordering features",
+        "Customer and data management",
+        "Fast and responsive performance",
+      ],
+    },
+    {
+      name: "Admin Dashboard",
+      tagline: "Manage your business in one simple place",
+      icon: "layout",
+      color: "#ff9500",
+      features: [
+        "Easy-to-use admin panel",
+        "View reports and business data",
+        "Manage customers, products, or services",
+        "Accessible from desktop and mobile",
+      ],
+    },
+    {
+      name: "Launch & Support",
+      tagline: "Help from launch to everyday care",
+      icon: "cloud",
+      color: "#34c759",
+      features: [
+        "Application setup assistance",
+        "Online publishing support",
+        "Performance and security checks",
+        "Ongoing maintenance and updates",
+      ],
+    },
+  ],
+  pricingHeading: "Pricing",
+  popularLabel: "Most Popular",
+  plans: [
+    {
+      name: "Starter",
+      price: "Starting from Rp 1.500.000",
+      note: "Suitable for personal projects, portfolios, or simple business websites.",
+      cta: "Choose Plan",
+      features: [
+        "Professional website",
+        "Simple contact & ordering form",
+        "Mobile-friendly design",
+        "Launch assistance",
+        "Revision support",
+      ],
+    },
+    {
+      name: "Professional",
+      price: "Starting from Rp 3.500.000",
+      note: "Perfect for businesses that need a complete mobile app and management system.",
+      popular: true,
+      cta: "Get Started",
+      features: [
+        "Professional mobile app & website",
+        "Customer management features",
+        "Online ordering or booking",
+        "Admin panel for daily operations",
+        "Launch assistance",
+        "Revision support",
+      ],
+    },
+    {
+      name: "Enterprise",
+      price: "Starting from Rp 9.000.000",
+      note: "Designed for companies that need a custom digital solution with long-term support.",
+      cta: "Contact Me",
+      features: [
+        "Fully custom digital solution",
+        "Payment integration",
+        "Real-time chat & notifications",
+        "Reliable and secure setup",
+        "Launch assistance",
+        "Long-term support & maintenance",
+      ],
+    },
+  ],
+  workflowHeading: "How It Works",
+  workflow: [
+    {
+      name: "Tell Me Your Idea",
+      description: "You tell me what your business needs, and I listen.",
+      icon: "chat",
+    },
+    {
+      name: "Planning & Design",
+      description: "I plan how it should work and design the look together with you.",
+      icon: "pen",
+    },
+    {
+      name: "Application Development",
+      description: "I build your app, website, or system step by step.",
+      icon: "code",
+    },
+    {
+      name: "Review & Launch",
+      description: "You review everything, and we launch it together.",
+      icon: "rocket",
+    },
+    {
+      name: "Ongoing Support",
+      description: "I keep it running well and make updates when needed.",
+      icon: "wrench",
+    },
+  ],
+  cta: {
+    title: "Let's Build Something Useful for Your Business",
+    description:
+      "Whether you need a simple website, a mobile app, or a complete business system, I can help you choose the right solution and build it step by step.",
+    button: "Discuss Your Project",
+    emailLabel: "Email",
+  },
+};
 
 export const contact: Contact = {
   heading: "Contact me for collaboration",

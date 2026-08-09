@@ -6,7 +6,7 @@
  * (types + image assets) stays here.
  */
 
-export type TabId = "home" | "experience" | "skills" | "projects";
+export type TabId = "home" | "services" | "experience" | "skills" | "projects";
 
 export interface NavItem {
   id: TabId;
@@ -88,6 +88,52 @@ export interface Article {
   readTime: string;
   date: string;
   description: string;
+}
+
+/** One "build your app" service offering (hero card grid). */
+export interface Service {
+  name: string;
+  tagline: string;
+  features: string[];
+  icon: string;
+  color: string;
+}
+
+export interface PricingPlan {
+  name: string;
+  price: string;
+  note: string;
+  features: string[];
+  cta: string;
+  popular?: boolean;
+}
+
+export interface WorkflowStep {
+  name: string;
+  description: string;
+  icon: string;
+}
+
+export interface ServicesSection {
+  hero: {
+    headline: string;
+    subtitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+  servicesHeading: string;
+  services: Service[];
+  pricingHeading: string;
+  popularLabel: string;
+  plans: PricingPlan[];
+  workflowHeading: string;
+  workflow: WorkflowStep[];
+  cta: {
+    title: string;
+    description: string;
+    button: string;
+    emailLabel: string;
+  };
 }
 
 export interface SocialLink {

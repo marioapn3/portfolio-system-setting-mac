@@ -8,6 +8,7 @@ import type {
   Project,
   Article,
   Contact,
+  ServicesSection,
 } from "@/lib/data";
 import * as enBundle from "./en";
 import * as idBundle from "./id";
@@ -32,6 +33,7 @@ export interface Content {
   projects: Project[];
   articles: Article[];
   contact: Contact;
+  services: ServicesSection;
 }
 
 export type Ui = typeof uiEn;

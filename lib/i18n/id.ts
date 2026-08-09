@@ -8,6 +8,7 @@ import type {
   Project,
   Article,
   Contact,
+  ServicesSection,
 } from "@/lib/data";
 
 /** Indonesian content bundle. Proper nouns, tech, URLs, and role labels stay
@@ -25,6 +26,7 @@ export const profile: Profile = {
 
 export const navItems: NavItem[] = [
   { id: "home", label: "Ikhtisar", icon: "home", color: "#007aff" },
+  { id: "services", label: "Layanan", icon: "globe", color: "#34c759" },
   { id: "experience", label: "Pengalaman", icon: "briefcase", color: "#5e5ce6" },
   { id: "skills", label: "Keahlian", icon: "sparkles", color: "#bf5af2" },
   { id: "projects", label: "Proyek", icon: "folder", color: "#ff9500" },
@@ -476,6 +478,148 @@ export const articles: Article[] = [
       "Manfaatkan NestJS dan TypeScript untuk membangun API modular kelas enterprise bagi ekosistem cloud modern.",
   },
 ];
+
+export const services: ServicesSection = {
+  hero: {
+    headline: "Ubah Ide Anda Menjadi Aplikasi Nyata",
+    subtitle:
+      "Saya membantu bisnis dan perorangan membuat aplikasi mobile, situs web, dan sistem digital yang mudah digunakan, tampak profesional, dan siap mendukung operasional serta pertumbuhan bisnis Anda.",
+    ctaPrimary: "Konsultasi Gratis",
+    ctaSecondary: "Lihat Harga",
+  },
+  servicesHeading: "Yang Bisa Saya Bantu Buatkan",
+  services: [
+    {
+      name: "Pengembangan Aplikasi Mobile",
+      tagline: "Aplikasi Android & iPhone yang disukai pelanggan",
+      icon: "smartphone",
+      color: "#007aff",
+      features: [
+        "Aplikasi Android & iPhone",
+        "Desain yang mudah digunakan",
+        "Notifikasi untuk pelanggan Anda",
+        "Bantuan publikasi aplikasi ke app store",
+      ],
+    },
+    {
+      name: "Pengembangan Sistem & Situs Web Bisnis",
+      tagline: "Situs web atau sistem untuk operasional harian Anda",
+      icon: "server",
+      color: "#5e5ce6",
+      features: [
+        "Sistem bisnis sesuai kebutuhan",
+        "Fitur booking atau pemesanan online",
+        "Pengelolaan pelanggan dan data",
+        "Performa cepat dan responsif",
+      ],
+    },
+    {
+      name: "Panel Admin",
+      tagline: "Kelola bisnis Anda dalam satu tempat yang mudah",
+      icon: "layout",
+      color: "#ff9500",
+      features: [
+        "Panel admin yang mudah digunakan",
+        "Lihat laporan dan data bisnis",
+        "Kelola pelanggan, produk, atau layanan",
+        "Bisa diakses dari desktop dan ponsel",
+      ],
+    },
+    {
+      name: "Peluncuran & Dukungan",
+      tagline: "Pendampingan dari peluncuran hingga perawatan harian",
+      icon: "cloud",
+      color: "#34c759",
+      features: [
+        "Bantuan pengaturan aplikasi",
+        "Dukungan publikasi online",
+        "Pemeriksaan performa dan keamanan",
+        "Pemeliharaan dan pembaruan berkala",
+      ],
+    },
+  ],
+  pricingHeading: "Harga",
+  popularLabel: "Paling Populer",
+  plans: [
+    {
+      name: "Starter",
+      price: "Mulai dari Rp 1.500.000",
+      note: "Cocok untuk proyek pribadi, portofolio, atau situs web bisnis sederhana.",
+      cta: "Pilih Paket",
+      features: [
+        "Situs web profesional",
+        "Form kontak & pemesanan sederhana",
+        "Tampilan ramah perangkat mobile",
+        "Bantuan peluncuran",
+        "Dukungan revisi",
+      ],
+    },
+    {
+      name: "Professional",
+      price: "Mulai dari Rp 3.500.000",
+      note: "Cocok untuk bisnis yang membutuhkan aplikasi mobile lengkap dan sistem manajemen.",
+      popular: true,
+      cta: "Mulai Sekarang",
+      features: [
+        "Aplikasi mobile & situs web profesional",
+        "Fitur pengelolaan pelanggan",
+        "Pemesanan atau booking online",
+        "Panel admin untuk operasional harian",
+        "Bantuan peluncuran",
+        "Dukungan revisi",
+      ],
+    },
+    {
+      name: "Enterprise",
+      price: "Mulai dari Rp 9.000.000",
+      note: "Dirancang untuk perusahaan yang membutuhkan solusi digital khusus dengan dukungan jangka panjang.",
+      cta: "Hubungi Saya",
+      features: [
+        "Solusi digital khusus sesuai kebutuhan",
+        "Integrasi pembayaran",
+        "Chat & notifikasi real-time",
+        "Pengaturan yang andal dan aman",
+        "Bantuan peluncuran",
+        "Dukungan & pemeliharaan jangka panjang",
+      ],
+    },
+  ],
+  workflowHeading: "Cara Kerja",
+  workflow: [
+    {
+      name: "Ceritakan Ide Anda",
+      description: "Anda menceritakan kebutuhan bisnis Anda, dan saya mendengarkan.",
+      icon: "chat",
+    },
+    {
+      name: "Perencanaan & Desain",
+      description: "Saya merencanakan cara kerjanya dan mendesain tampilannya bersama Anda.",
+      icon: "pen",
+    },
+    {
+      name: "Pengembangan Aplikasi",
+      description: "Saya membangun aplikasi, situs web, atau sistem Anda langkah demi langkah.",
+      icon: "code",
+    },
+    {
+      name: "Tinjau & Luncurkan",
+      description: "Anda meninjau semuanya, lalu kami meluncurkannya bersama.",
+      icon: "rocket",
+    },
+    {
+      name: "Dukungan Berkelanjutan",
+      description: "Saya membantu menjaganya tetap berjalan baik dan melakukan pembaruan saat dibutuhkan.",
+      icon: "wrench",
+    },
+  ],
+  cta: {
+    title: "Mari Bangun Sesuatu yang Bermanfaat untuk Bisnis Anda",
+    description:
+      "Baik Anda membutuhkan situs web sederhana, aplikasi mobile, atau sistem bisnis lengkap, saya siap membantu memilih solusi yang tepat dan membangunnya langkah demi langkah.",
+    button: "Diskusikan Proyek Anda",
+    emailLabel: "Email",
+  },
+};
 
 export const contact: Contact = {
   heading: "Hubungi saya untuk kolaborasi",
