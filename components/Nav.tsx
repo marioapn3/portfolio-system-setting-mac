@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Icon } from "@/components/Icon";
 import { IconBadge } from "@/components/ui/IconBadge";
 import { SearchField } from "@/components/ui/SearchField";
@@ -32,6 +32,7 @@ function SidebarItem({
   active: boolean;
   onNavigate: (id: TabId) => void;
 }) {
+  const reduce = useReducedMotion();
   return (
     <button
       type="button"
@@ -41,15 +42,15 @@ function SidebarItem({
       tabIndex={active ? 0 : -1}
       onClick={() => onNavigate(id)}
       className={cn(
-        "relative flex w-full items-center gap-2.5 rounded-md px-2 py-[5px] text-left text-[13px] outline-none cursor-pointer",
-        active ? "text-white" : "text-fg hover:bg-black/5 dark:hover:bg-white/10",
+        "ss-press relative flex h-7 w-full items-center gap-2.5 rounded-[8px] px-2 text-left text-[13px] text-fg outline-none cursor-pointer",
+        !active && "hover:bg-[var(--glass-hover)]",
       )}
     >
       {active && (
         <motion.span
           layoutId="ss-active"
-          transition={{ type: "spring", stiffness: 520, damping: 40 }}
-          className="absolute inset-0 rounded-md bg-accent"
+          transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }}
+          className="absolute inset-0 rounded-[8px] bg-[var(--glass-pill)] shadow-[0_1px_2px_rgb(0_0_0/0.08),inset_0_1px_0_var(--glass-edge)] ring-1 ring-separator"
         />
       )}
       <IconBadge icon={icon} color={color} className="relative z-10" />
@@ -70,7 +71,7 @@ export function Sidebar({ active, onNavigate }: NavProps) {
   }, [query, navItems]);
 
   return (
-    <aside className="ss-sidebar hidden w-[220px] shrink-0 flex-col border-r border-separator md:flex">
+    <aside className="ss-sidebar m-2 mr-0 hidden w-[220px] shrink-0 flex-col rounded-[18px] md:flex">
       <div className="px-2.5 pt-2.5">
         <SearchField value={query} onChange={setQuery} />
       </div>
@@ -143,7 +144,7 @@ export function MobileTabBar({ active, onNavigate }: NavProps) {
       <nav
         aria-label={t.nav.sections}
         aria-orientation="horizontal"
-        className="pointer-events-auto flex h-[60px] w-full max-w-[420px] items-stretch gap-1 rounded-[30px] border border-white/25 bg-white/30 px-2 backdrop-blur-2xl dark:border-white/15 dark:bg-white/10"
+        className="ss-glass-float pointer-events-auto flex h-[60px] w-full max-w-[420px] items-stretch gap-1 rounded-[30px] border border-white/25 px-2 dark:border-white/15"
         style={{
           boxShadow:
             "inset 0 1px 1px rgba(255,255,255,0.45), 0 12px 44px -10px rgba(0,0,0,0.45)",

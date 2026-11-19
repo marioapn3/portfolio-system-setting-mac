@@ -22,8 +22,9 @@
 
   /* Text */
   --fg: #1d1d1f;
-  --fg-secondary: #6d6d72;
-  --fg-tertiary: #9a9a9e;
+  /* WCAG AA (4.5:1 for text ≤17pt) on --win-bg #ececec and --card #fff. */
+  --fg-secondary: #555559;
+  --fg-tertiary: #6a6a70;
 
   /* Lines */
   --separator: rgba(0, 0, 0, 0.12);
@@ -31,7 +32,7 @@
   --window-border: rgba(0, 0, 0, 0.16);
 
   /* Accent (macOS blue) */
-  --accent: #007aff;
+  --accent: #0071e3;   /* white label 4.70:1 */
   --accent-hover: #0066d6;
   --accent-soft: rgba(0, 122, 255, 0.14);
   --accent-on: #ffffff;
@@ -40,6 +41,13 @@
   --tl-red: #ff5f57;
   --tl-yellow: #febc2e;
   --tl-green: #28c840;
+
+  /* Liquid Glass */
+  --glass-fill: rgb(255 255 255 / 0.72);
+  --glass-edge: rgb(255 255 255 / 0.9);      /* inner top highlight */
+  --glass-hover: rgb(255 255 255 / 0.55);
+  --glass-pill: rgb(255 255 255 / 0.78);     /* active sidebar item */
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 8px 24px -12px rgb(0 0 0 / 0.14);
 
   color-scheme: light;
 }
@@ -58,13 +66,13 @@
 
   --fg: #f5f5f7;
   --fg-secondary: #a1a1a6;
-  --fg-tertiary: #6e6e72;
+  --fg-tertiary: #96969c;
 
   --separator: rgba(255, 255, 255, 0.12);
   --separator-strong: rgba(255, 255, 255, 0.2);
   --window-border: rgba(255, 255, 255, 0.16);
 
-  --accent: #0a84ff;
+  --accent: #0a72d8;   /* white label 4.76:1 */
   --accent-hover: #409cff;
   --accent-soft: rgba(10, 132, 255, 0.22);
   --accent-on: #ffffff;
@@ -72,6 +80,12 @@
   --tl-red: #ff5f57;
   --tl-yellow: #febc2e;
   --tl-green: #28c840;
+
+  --glass-fill: rgb(255 255 255 / 0.06);
+  --glass-edge: rgb(255 255 255 / 0.1);
+  --glass-hover: rgb(255 255 255 / 0.06);
+  --glass-pill: rgb(255 255 255 / 0.12);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 10px 28px -14px rgb(0 0 0 / 0.6);
 
   color-scheme: dark;
 }
@@ -147,11 +161,21 @@
 }
 
 @layer components {
-  /* Translucent sidebar vibrancy */
+  /* Floating glass sidebar — the only element with a heavy backdrop blur. */
   .ss-sidebar {
     background-color: rgb(var(--sidebar-bg) / 0.55);
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    box-shadow: inset 0 1px 0 var(--glass-edge), inset 0 0 0 1px var(--separator),
+      var(--glass-shadow);
+  }
+
+  /* Press feedback for tactile controls. */
+  .ss-press {
+    transition: transform 0.18s var(--ease-apple), background-color 0.18s var(--ease-apple);
+  }
+  .ss-press:active {
+    transform: scale(0.98);
   }
 
   /* macOS squircle icon tile */
@@ -178,15 +202,53 @@
     background: var(--separator);
   }
 
-  /* Liquid-glass surface (macOS 26 Tahoe): translucent frosted grouped cards. */
+  /* Content card: opaque, not glass. Glass belongs only to the functional
+     layer (sidebar, bars, floating controls), per liquid-glass.md. */
   .ss-surface {
-    background-color: rgb(255 255 255 / 0.72);
-    backdrop-filter: blur(20px) saturate(1.5);
-    -webkit-backdrop-filter: blur(20px) saturate(1.5);
-    box-shadow: inset 0 0 0 1px var(--separator);
+    background-color: var(--card);
+    box-shadow: inset 0 1px 0 var(--glass-edge), inset 0 0 0 1px var(--separator),
+      var(--glass-shadow);
   }
-  .dark .ss-surface {
-    background-color: rgb(255 255 255 / 0.06);
+
+  /* Floating functional glass: titlebar, mobile tab bar, mobile theme button. */
+  .ss-glass-float {
+    background-color: rgb(255 255 255 / 0.3);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  }
+  .dark .ss-glass-float {
+    background-color: rgb(255 255 255 / 0.1);
+  }
+
+  /* Scroll edge: content fades where it meets the bars instead of colliding. */
+  .ss-scroll-edge {
+    mask-image: linear-gradient(to bottom, transparent, #000 12px, #000 calc(100% - 24px), transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12px, #000 calc(100% - 24px), transparent);
+  }
+}
+
+/* Reduce Transparency: opaque fallbacks for every glass element. */
+@media (prefers-reduced-transparency: reduce) {
+  .ss-sidebar,
+  .ss-glass-float,
+  .dark .ss-glass-float {
+    background-color: var(--win-bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Increase Contrast: stronger hairlines and borders. */
+@media (prefers-contrast: more) {
+  :root {
+    --separator: rgba(0, 0, 0, 0.3);
+    --separator-strong: rgba(0, 0, 0, 0.45);
+    --window-border: rgba(0, 0, 0, 0.5);
+  }
+  .dark {
+    --separator: rgba(255, 255, 255, 0.3);
+    --separator-strong: rgba(255, 255, 255, 0.45);
+    --window-border: rgba(255, 255, 255, 0.5);
   }
 }
 

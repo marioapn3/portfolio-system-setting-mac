@@ -19,7 +19,7 @@ export function WindowChrome({
     <div className="flex min-h-dvh w-full justify-center lg:py-6">
       <div className="flex w-full max-w-[1000px] flex-col overflow-hidden bg-win shadow-[0_30px_90px_-20px_rgba(0,0,0,0.5)] ring-1 ring-window-border sm:rounded-none lg:h-[calc(100dvh-3rem)] lg:rounded-[16px]">
         {/* Title bar */}
-        <div className="relative flex h-10 shrink-0 items-center border-b border-separator bg-titlebar/50 backdrop-blur-xl">
+        <div className="ss-glass-float relative flex h-10 shrink-0 items-center border-b border-separator">
           <div className="flex items-center gap-2 pl-3.5">
             <span
               className="h-3 w-3 rounded-full"

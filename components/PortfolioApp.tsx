@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Sidebar, MobileTabBar } from "@/components/Nav";
 import { WindowChrome } from "@/components/WindowChrome";
 import { MobileThemeButton } from "@/components/MobileThemeButton";
@@ -9,8 +9,6 @@ import { sectionMap } from "@/components/sections";
 import { type TabId } from "@/lib/data";
 import { useContent } from "@/components/LocaleProvider";
 import { useTab } from "@/components/TabProvider";
-
-const EASE = [0.4, 0, 0.2, 1] as const;
 
 // Direction-aware slide between panes (like System Settings navigation).
 const variants = {
@@ -23,6 +21,7 @@ export function PortfolioApp() {
   const { navItems } = useContent();
   const { index, setIndex } = useTab();
   const [direction, setDirection] = useState(0);
+  const reduce = useReducedMotion();
   const indexRef = useRef(0);
   useEffect(() => {
     indexRef.current = index;
@@ -88,8 +87,8 @@ export function PortfolioApp() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.28, ease: EASE }}
-                className="absolute inset-0 overflow-y-auto overflow-x-hidden"
+                transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 38 }}
+                className="ss-scroll-edge absolute inset-0 overflow-y-auto overflow-x-hidden"
               >
                 <div className="mx-auto w-full max-w-[680px] px-5 pb-28 pt-5 sm:px-7 md:pb-6 lg:pt-8">
                   <Section onNavigate={navigate} />
