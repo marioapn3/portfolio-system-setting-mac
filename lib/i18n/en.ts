@@ -169,6 +169,13 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    name: "Mobile",
+    items: [
+      { name: "SwiftUI", logo: "swiftui.svg" },
+      { name: "Kotlin", logo: "kotlin.svg" },
+    ],
+  },
+  {
     name: "Database",
     items: [
       { name: "MongoDB", logo: "mongodb.svg" },

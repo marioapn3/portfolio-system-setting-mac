@@ -102,7 +102,7 @@ export function Modal({
             {/* Title bar — drag handle. Traffic lights on the left; red closes. */}
             <div
               onPointerDown={(e) => dragControls.start(e)}
-              className="relative flex h-10 shrink-0 cursor-grab touch-none select-none items-center border-b border-separator bg-titlebar/60 backdrop-blur-xl active:cursor-grabbing"
+              className="relative flex h-10 shrink-0 cursor-grab touch-none select-none items-center border-b border-separator ss-glass-float active:cursor-grabbing"
             >
               <div
                 className="group/controls flex items-center gap-2 pl-3.5"

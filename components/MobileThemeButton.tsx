@@ -31,7 +31,7 @@ export function MobileThemeButton() {
           : tt.toggle
       }
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="fixed bottom-[92px] right-4 z-40 grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-white/30 text-accent backdrop-blur-2xl md:hidden dark:border-white/15 dark:bg-white/10"
+      className="ss-glass-float fixed bottom-[92px] right-4 z-40 grid h-11 w-11 place-items-center rounded-full border border-white/25 text-accent md:hidden dark:border-white/15"
       style={{
         boxShadow:
           "inset 0 1px 1px rgba(255,255,255,0.45), 0 8px 24px -6px rgba(0,0,0,0.4)",
